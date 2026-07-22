@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-fraunces), "Fraunces", Georgia, serif;
+  --font-sans: var(--font-figtree), "Figtree", "Segoe UI", sans-serif;
+
+  --color-ink: #14221f;
+  --color-ink-soft: #3d524c;
+  --color-muted: #6b7f78;
+  --color-surface: #f3f7f5;
+  --color-surface-elevated: #ffffff;
+  --color-line: #d5e0db;
+  --color-teal: #0f766e;
+  --color-teal-deep: #0b5a54;
+  --color-mint: #c8ebe3;
+  --color-coral: #e07a5f;
+  --color-amber: #d4a017;
+  --color-sky: #5b8def;
+  --color-danger: #c44536;
+  --color-success: #2a9d6a;
+
+  --shadow-soft: 0 10px 30px -12px rgb(15 34 31 / 0.18);
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html.dark {
+    --color-ink: #e8f2ef;
+    --color-ink-soft: #b7c9c2;
+    --color-muted: #8aa099;
+    --color-surface: #15201d;
+    --color-surface-elevated: #1c2a26;
+    --color-line: #2f433c;
+    --color-mint: #1f3d36;
+    --shadow-soft: 0 10px 30px -12px rgb(0 0 0 / 0.45);
+  }
+
+  body {
+    @apply min-h-dvh font-sans text-ink antialiased;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #d9f2eb 0%, transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, #f7e6dc 0%, transparent 50%),
+      linear-gradient(180deg, #eef5f2 0%, #f7faf8 40%, #eef3f1 100%);
+    background-attachment: fixed;
+  }
+
+  html.dark body {
+    background:
+      radial-gradient(1000px 500px at 10% -10%, #14352f 0%, transparent 55%),
+      radial-gradient(800px 400px at 100% 0%, #3a2a22 0%, transparent 50%),
+      linear-gradient(180deg, #101816 0%, #15201d 45%, #121a18 100%);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .touch-target {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .page-shell {
+    @apply mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-line/80 bg-surface-elevated/90 shadow-[var(--shadow-soft)] backdrop-blur-sm;
+  }
+}

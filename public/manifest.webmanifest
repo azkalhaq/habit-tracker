@@ -1,0 +1,9 @@
+{
+  "name": "Pulse",
+  "short_name": "Pulse",
+  "description": "Habit and wellness tracker",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#eef5f2",
+  "theme_color": "#0f766e"
+}
